@@ -84,7 +84,8 @@ function buildWebpackConfig({  filename, modulename, minify = false, globals = {
                 sourceMap: true
             })
         ],
-        bail: true
+        bail: true,
+        watch: yargs.argv['watch'] ? true : false
     };
 }
 
