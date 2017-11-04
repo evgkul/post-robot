@@ -59,11 +59,15 @@ function listenForRegister(source, domain) {
                     return;
                 }
 
-                receiveMessage({
-                    data:   message,
-                    origin: winDetails.domain,
-                    source: winDetails.win
-                });
+                try {
+                    receiveMessage({
+                        data: message,
+                        origin: winDetails.domain,
+                        source: winDetails.win
+                    });
+                } catch (err) {
+                    ZalgoPromise.reject(err);
+                }
             }
         };
     });
